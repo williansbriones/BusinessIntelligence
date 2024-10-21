@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{6C777263-6BC4-4ABF-9F14-0A48E2BA98E5}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{7198EC7D-CCFD-4D72-BDE4-575D5F88A889}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -43,6 +43,1321 @@
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Carga de sucursales"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{C545D929-4B6A-4B07-8D06-85363B3C7A54}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Carga de sucursales"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Carga de sucursales\Combinación de mezcla"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Combinación de mezcla;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Combina dos flujos de datos ordenados en uno solo mediante la combinación FULL, LEFT o INNER. Se recomienda esta transformación cuando se pueden ordenar los flujos de datos en sus orígenes."
+              name="Combinación de mezcla"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de combinación que se debe realizar."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número de columnas de la clave de ordenación."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores NULL se tratan como valores iguales."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indica la cantidad máxima solicitada de búferes por entrada antes del bloqueo."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Carga de sucursales\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada izquierda de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga de sucursales\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[id_sucursal]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="id_sucursal"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Carga de sucursales\Ordenar.Outputs[Salida de ordenación].Columns[id_sucursal]" />
+                    <inputColumn
+                      refId="Package\Carga de sucursales\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[nombre_sucursal_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="nombre_sucursal_str"
+                      lineageId="Package\Carga de sucursales\Conversión de datos.Outputs[Salida de conversión de datos].Columns[nombre_sucursal_str]" />
+                    <inputColumn
+                      refId="Package\Carga de sucursales\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[nombre_region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="nombre_region"
+                      lineageId="Package\Carga de sucursales\Ordenar.Outputs[Salida de ordenación].Columns[nombre_region]" />
+                    <inputColumn
+                      refId="Package\Carga de sucursales\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[nombre_region_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="nombre_region_str"
+                      lineageId="Package\Carga de sucursales\Conversión de datos.Outputs[Salida de conversión de datos].Columns[nombre_region_str]" />
+                    <inputColumn
+                      refId="Package\Carga de sucursales\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[nombre_provincia_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="nombre_provincia_str"
+                      lineageId="Package\Carga de sucursales\Conversión de datos.Outputs[Salida de conversión de datos].Columns[nombre_provincia_str]" />
+                    <inputColumn
+                      refId="Package\Carga de sucursales\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[nombre_comuna_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="nombre_comuna_str"
+                      lineageId="Package\Carga de sucursales\Conversión de datos.Outputs[Salida de conversión de datos].Columns[nombre_comuna_str]" />
+                    <inputColumn
+                      refId="Package\Carga de sucursales\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[id_sucursal_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="id_sucursal_str"
+                      lineageId="Package\Carga de sucursales\Conversión de datos.Outputs[Salida de conversión de datos].Columns[id_sucursal_str]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Carga de sucursales\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada derecha de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga de sucursales\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[id_dim]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="id_dim"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Carga de sucursales\Ordenar 1.Outputs[Salida de ordenación].Columns[id_dim]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga de sucursales\Combinación de mezcla.Outputs[Salida de combinación de mezcla]"
+                  isSorted="true"
+                  name="Salida de combinación de mezcla">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[id_dim]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Carga de sucursales\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[id_dim]"
+                      name="id_dim"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Carga de sucursales\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[id_dim]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[nombre_sucursal_str]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Carga de sucursales\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[nombre_sucursal_str]"
+                      name="nombre_sucursal_str">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Carga de sucursales\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[nombre_sucursal_str]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[nombre_region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Carga de sucursales\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[nombre_region]"
+                      name="nombre_region">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Carga de sucursales\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[nombre_region]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[nombre_region_str]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Carga de sucursales\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[nombre_region_str]"
+                      name="nombre_region_str">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Carga de sucursales\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[nombre_region_str]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[nombre_provincia_str]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Carga de sucursales\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[nombre_provincia_str]"
+                      name="nombre_provincia_str">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Carga de sucursales\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[nombre_provincia_str]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[nombre_comuna_str]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Carga de sucursales\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[nombre_comuna_str]"
+                      name="nombre_comuna_str">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Carga de sucursales\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[nombre_comuna_str]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[id_sucursal_str]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Carga de sucursales\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[id_sucursal_str]"
+                      name="id_sucursal_str">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\Carga de sucursales\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[id_sucursal_str]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga de sucursales\Conversión de datos"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Carga de sucursales\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga de sucursales\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[id_sucursal]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="id_sucursal"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Carga de sucursales\Ordenar.Outputs[Salida de ordenación].Columns[id_sucursal]" />
+                    <inputColumn
+                      refId="Package\Carga de sucursales\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[nombres_sucursal]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nombres_sucursal"
+                      lineageId="Package\Carga de sucursales\Ordenar.Outputs[Salida de ordenación].Columns[nombres_sucursal]" />
+                    <inputColumn
+                      refId="Package\Carga de sucursales\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[nombre_comuna]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nombre_comuna"
+                      lineageId="Package\Carga de sucursales\Ordenar.Outputs[Salida de ordenación].Columns[nombre_comuna]" />
+                    <inputColumn
+                      refId="Package\Carga de sucursales\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[nombre_provincia]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="nombre_provincia"
+                      lineageId="Package\Carga de sucursales\Ordenar.Outputs[Salida de ordenación].Columns[nombre_provincia]" />
+                    <inputColumn
+                      refId="Package\Carga de sucursales\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[nombre_region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="nombre_region"
+                      lineageId="Package\Carga de sucursales\Ordenar.Outputs[Salida de ordenación].Columns[nombre_region]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga de sucursales\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Carga de sucursales\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Conversión de datos.Outputs[Salida de conversión de datos].Columns[id_sucursal_str]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="500"
+                      lineageId="Package\Carga de sucursales\Conversión de datos.Outputs[Salida de conversión de datos].Columns[id_sucursal_str]"
+                      name="id_sucursal_str"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Carga de sucursales\Ordenar.Outputs[Salida de ordenación].Columns[id_sucursal]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Conversión de datos.Outputs[Salida de conversión de datos].Columns[nombre_sucursal_str]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Carga de sucursales\Conversión de datos.Outputs[Salida de conversión de datos].Columns[nombre_sucursal_str]"
+                      name="nombre_sucursal_str"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Carga de sucursales\Ordenar.Outputs[Salida de ordenación].Columns[nombres_sucursal]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Conversión de datos.Outputs[Salida de conversión de datos].Columns[nombre_comuna_str]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Carga de sucursales\Conversión de datos.Outputs[Salida de conversión de datos].Columns[nombre_comuna_str]"
+                      name="nombre_comuna_str"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Carga de sucursales\Ordenar.Outputs[Salida de ordenación].Columns[nombre_comuna]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Conversión de datos.Outputs[Salida de conversión de datos].Columns[nombre_provincia_str]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Carga de sucursales\Conversión de datos.Outputs[Salida de conversión de datos].Columns[nombre_provincia_str]"
+                      name="nombre_provincia_str"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Carga de sucursales\Ordenar.Outputs[Salida de ordenación].Columns[nombre_provincia]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Conversión de datos.Outputs[Salida de conversión de datos].Columns[nombre_region_str]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Carga de sucursales\Conversión de datos.Outputs[Salida de conversión de datos].Columns[nombre_region_str]"
+                      name="nombre_region_str"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Carga de sucursales\Ordenar.Outputs[Salida de ordenación].Columns[nombre_region]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga de sucursales\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Carga de sucursales\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga de sucursales\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga de sucursales\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga de sucursales\Destino de OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[DIM_UBICACION]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga de sucursales\Destino de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Albarran_etl]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Albarran_etl]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga de sucursales\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga de sucursales\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[id_sucursal_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="id_sucursal_str"
+                      externalMetadataColumnId="Package\Carga de sucursales\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ubicacionId]"
+                      lineageId="Package\Carga de sucursales\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[id_sucursal_str]" />
+                    <inputColumn
+                      refId="Package\Carga de sucursales\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[nombre_sucursal_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="nombre_sucursal_str"
+                      externalMetadataColumnId="Package\Carga de sucursales\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[sucursalNombre]"
+                      lineageId="Package\Carga de sucursales\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[nombre_sucursal_str]" />
+                    <inputColumn
+                      refId="Package\Carga de sucursales\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[nombre_comuna_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="nombre_comuna_str"
+                      externalMetadataColumnId="Package\Carga de sucursales\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[comunaNombre]"
+                      lineageId="Package\Carga de sucursales\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[nombre_comuna_str]" />
+                    <inputColumn
+                      refId="Package\Carga de sucursales\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[nombre_provincia_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="nombre_provincia_str"
+                      externalMetadataColumnId="Package\Carga de sucursales\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[provinciaNombre]"
+                      lineageId="Package\Carga de sucursales\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[nombre_provincia_str]" />
+                    <inputColumn
+                      refId="Package\Carga de sucursales\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[nombre_region_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="nombre_region_str"
+                      externalMetadataColumnId="Package\Carga de sucursales\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[regionNombre]"
+                      lineageId="Package\Carga de sucursales\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[nombre_region_str]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga de sucursales\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ubicacionId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="ubicacionId" />
+                    <externalMetadataColumn
+                      refId="Package\Carga de sucursales\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[sucursalNombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="sucursalNombre" />
+                    <externalMetadataColumn
+                      refId="Package\Carga de sucursales\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[comunaNombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="comunaNombre" />
+                    <externalMetadataColumn
+                      refId="Package\Carga de sucursales\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[provinciaNombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="provinciaNombre" />
+                    <externalMetadataColumn
+                      refId="Package\Carga de sucursales\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[regionNombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="regionNombre" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga de sucursales\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Carga de sucursales\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga de sucursales\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga de sucursales\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga de sucursales\dim_ubicacion"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="dim_ubicacion"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select ubicacionId as id_dim from dim_ubicacion as dim_ubi</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga de sucursales\dim_ubicacion.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Albarran_etl]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Albarran_etl]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Carga de sucursales\dim_ubicacion.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga de sucursales\dim_ubicacion.Outputs[Salida de origen de OLE DB].Columns[id_dim]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga de sucursales\dim_ubicacion.Outputs[Salida de origen de OLE DB].ExternalColumns[id_dim]"
+                      length="500"
+                      lineageId="Package\Carga de sucursales\dim_ubicacion.Outputs[Salida de origen de OLE DB].Columns[id_dim]"
+                      name="id_dim"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga de sucursales\dim_ubicacion.Outputs[Salida de origen de OLE DB].ExternalColumns[id_dim]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="id_dim" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Carga de sucursales\dim_ubicacion.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga de sucursales\dim_ubicacion.Outputs[Salida de error de origen de OLE DB].Columns[id_dim]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Carga de sucursales\dim_ubicacion.Outputs[Salida de error de origen de OLE DB].Columns[id_dim]"
+                      name="id_dim" />
+                    <outputColumn
+                      refId="Package\Carga de sucursales\dim_ubicacion.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga de sucursales\dim_ubicacion.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga de sucursales\dim_ubicacion.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga de sucursales\dim_ubicacion.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga de sucursales\División condicional"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
+              name="División condicional"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Carga de sucursales\División condicional.Inputs[Entrada de división condicional]"
+                  description="Entrada en la transformación División condicional"
+                  name="Entrada de división condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga de sucursales\División condicional.Inputs[Entrada de división condicional].Columns[id_dim]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="id_dim"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Carga de sucursales\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[id_dim]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga de sucursales\División condicional.Outputs[nuevoRegistro]"
+                  description="Salida 1 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="nuevoRegistro"
+                  synchronousInputId="Package\Carga de sucursales\División condicional.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">[ISNULL](#{Package\Carga de sucursales\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[id_dim]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(id_dim)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga de sucursales\División condicional.Outputs[Salida predeterminada de división condicional]"
+                  description="Salida predeterminada de la transformación División condicional"
+                  exclusionGroup="1"
+                  name="Salida predeterminada de división condicional"
+                  synchronousInputId="Package\Carga de sucursales\División condicional.Inputs[Entrada de división condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga de sucursales\División condicional.Outputs[Salida de error de división condicional]"
+                  description="Salida de error de la transformación División condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de división condicional"
+                  synchronousInputId="Package\Carga de sucursales\División condicional.Inputs[Entrada de división condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga de sucursales\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga de sucursales\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga de sucursales\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga de sucursales\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga de sucursales\Ordenar"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Carga de sucursales\Ordenar.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga de sucursales\Ordenar.Inputs[Entrada de ordenación].Columns[id_sucursal]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="id_sucursal"
+                      lineageId="Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB].Columns[id_sucursal]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga de sucursales\Ordenar.Inputs[Entrada de ordenación].Columns[nombres_sucursal]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nombres_sucursal"
+                      lineageId="Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB].Columns[nombres_sucursal]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga de sucursales\Ordenar.Inputs[Entrada de ordenación].Columns[nombre_comuna]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nombre_comuna"
+                      lineageId="Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB].Columns[nombre_comuna]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga de sucursales\Ordenar.Inputs[Entrada de ordenación].Columns[nombre_provincia]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="nombre_provincia"
+                      lineageId="Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB].Columns[nombre_provincia]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga de sucursales\Ordenar.Inputs[Entrada de ordenación].Columns[nombre_region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="nombre_region"
+                      lineageId="Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB].Columns[nombre_region]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga de sucursales\Ordenar.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Ordenar.Outputs[Salida de ordenación].Columns[id_sucursal]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Carga de sucursales\Ordenar.Outputs[Salida de ordenación].Columns[id_sucursal]"
+                      name="id_sucursal"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB].Columns[id_sucursal]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Ordenar.Outputs[Salida de ordenación].Columns[nombres_sucursal]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Carga de sucursales\Ordenar.Outputs[Salida de ordenación].Columns[nombres_sucursal]"
+                      name="nombres_sucursal">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB].Columns[nombres_sucursal]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Ordenar.Outputs[Salida de ordenación].Columns[nombre_comuna]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Carga de sucursales\Ordenar.Outputs[Salida de ordenación].Columns[nombre_comuna]"
+                      name="nombre_comuna">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB].Columns[nombre_comuna]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Ordenar.Outputs[Salida de ordenación].Columns[nombre_provincia]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Carga de sucursales\Ordenar.Outputs[Salida de ordenación].Columns[nombre_provincia]"
+                      name="nombre_provincia">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB].Columns[nombre_provincia]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Ordenar.Outputs[Salida de ordenación].Columns[nombre_region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Carga de sucursales\Ordenar.Outputs[Salida de ordenación].Columns[nombre_region]"
+                      name="nombre_region">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB].Columns[nombre_region]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga de sucursales\Ordenar 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Carga de sucursales\Ordenar 1.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga de sucursales\Ordenar 1.Inputs[Entrada de ordenación].Columns[id_dim]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="id_dim"
+                      lineageId="Package\Carga de sucursales\dim_ubicacion.Outputs[Salida de origen de OLE DB].Columns[id_dim]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga de sucursales\Ordenar 1.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Ordenar 1.Outputs[Salida de ordenación].Columns[id_dim]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Carga de sucursales\Ordenar 1.Outputs[Salida de ordenación].Columns[id_dim]"
+                      name="id_dim"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Carga de sucursales\dim_ubicacion.Outputs[Salida de origen de OLE DB].Columns[id_dim]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga de sucursales\Sucursales"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Sucursales"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select CONCAT('suc_',REPLACE(LEFT(c.comuna,5),' ', ''), s.sucursal_id) as id_sucursal,
+s.sucursal as nombres_sucursal, c.comuna as nombre_comuna , p.nombreProvincia as nombre_provincia,
+r.nombreRegion as nombre_region
+from sucursales as s join comunas as c on (c.comuna_id = s.comuna_id) join PROVINCIA as p on (p.provinciaid = c.provinciaid) join REGION as r on (r.regionId = p.regionId);</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga de sucursales\Sucursales.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Albarran]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Albarran]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB].Columns[id_sucursal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB].ExternalColumns[id_sucursal]"
+                      length="4000"
+                      lineageId="Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB].Columns[id_sucursal]"
+                      name="id_sucursal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB].Columns[nombres_sucursal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB].ExternalColumns[nombres_sucursal]"
+                      length="255"
+                      lineageId="Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB].Columns[nombres_sucursal]"
+                      name="nombres_sucursal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB].Columns[nombre_comuna]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB].ExternalColumns[nombre_comuna]"
+                      length="255"
+                      lineageId="Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB].Columns[nombre_comuna]"
+                      name="nombre_comuna"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB].Columns[nombre_provincia]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB].ExternalColumns[nombre_provincia]"
+                      length="100"
+                      lineageId="Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB].Columns[nombre_provincia]"
+                      name="nombre_provincia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB].Columns[nombre_region]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB].ExternalColumns[nombre_region]"
+                      length="100"
+                      lineageId="Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB].Columns[nombre_region]"
+                      name="nombre_region"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB].ExternalColumns[id_sucursal]"
+                      dataType="wstr"
+                      length="4000"
+                      name="id_sucursal" />
+                    <externalMetadataColumn
+                      refId="Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB].ExternalColumns[nombres_sucursal]"
+                      dataType="wstr"
+                      length="255"
+                      name="nombres_sucursal" />
+                    <externalMetadataColumn
+                      refId="Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB].ExternalColumns[nombre_comuna]"
+                      dataType="wstr"
+                      length="255"
+                      name="nombre_comuna" />
+                    <externalMetadataColumn
+                      refId="Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB].ExternalColumns[nombre_provincia]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="nombre_provincia" />
+                    <externalMetadataColumn
+                      refId="Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB].ExternalColumns[nombre_region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="nombre_region" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Carga de sucursales\Sucursales.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Sucursales.Outputs[Salida de error de origen de OLE DB].Columns[id_sucursal]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Carga de sucursales\Sucursales.Outputs[Salida de error de origen de OLE DB].Columns[id_sucursal]"
+                      name="id_sucursal" />
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Sucursales.Outputs[Salida de error de origen de OLE DB].Columns[nombres_sucursal]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Carga de sucursales\Sucursales.Outputs[Salida de error de origen de OLE DB].Columns[nombres_sucursal]"
+                      name="nombres_sucursal" />
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Sucursales.Outputs[Salida de error de origen de OLE DB].Columns[nombre_comuna]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Carga de sucursales\Sucursales.Outputs[Salida de error de origen de OLE DB].Columns[nombre_comuna]"
+                      name="nombre_comuna" />
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Sucursales.Outputs[Salida de error de origen de OLE DB].Columns[nombre_provincia]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Carga de sucursales\Sucursales.Outputs[Salida de error de origen de OLE DB].Columns[nombre_provincia]"
+                      name="nombre_provincia" />
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Sucursales.Outputs[Salida de error de origen de OLE DB].Columns[nombre_region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Carga de sucursales\Sucursales.Outputs[Salida de error de origen de OLE DB].Columns[nombre_region]"
+                      name="nombre_region" />
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Sucursales.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga de sucursales\Sucursales.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga de sucursales\Sucursales.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga de sucursales\Sucursales.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Carga de sucursales.Paths[nuevoRegistro]"
+              endId="Package\Carga de sucursales\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="nuevoRegistro"
+              startId="Package\Carga de sucursales\División condicional.Outputs[nuevoRegistro]" />
+            <path
+              refId="Package\Carga de sucursales.Paths[Salida de combinación de mezcla]"
+              endId="Package\Carga de sucursales\División condicional.Inputs[Entrada de división condicional]"
+              name="Salida de combinación de mezcla"
+              startId="Package\Carga de sucursales\Combinación de mezcla.Outputs[Salida de combinación de mezcla]" />
+            <path
+              refId="Package\Carga de sucursales.Paths[Salida de conversión de datos]"
+              endId="Package\Carga de sucursales\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+              name="Salida de conversión de datos"
+              startId="Package\Carga de sucursales\Conversión de datos.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Carga de sucursales.Paths[Salida de ordenación]"
+              endId="Package\Carga de sucursales\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              name="Salida de ordenación"
+              startId="Package\Carga de sucursales\Ordenar.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\Carga de sucursales.Paths[Salida de ordenación1]"
+              endId="Package\Carga de sucursales\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\Carga de sucursales\Ordenar 1.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\Carga de sucursales.Paths[Salida de origen de OLE DB]"
+              endId="Package\Carga de sucursales\Ordenar 1.Inputs[Entrada de ordenación]"
+              name="Salida de origen de OLE DB"
+              startId="Package\Carga de sucursales\dim_ubicacion.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\Carga de sucursales.Paths[Salida de origen de OLE DB1]"
+              endId="Package\Carga de sucursales\Ordenar.Inputs[Entrada de ordenación]"
+              name="Salida de origen de OLE DB"
+              startId="Package\Carga de sucursales\Sucursales.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Carga empleados"
       DTS:CreationName="Microsoft.Pipeline"
@@ -4926,7 +6241,53 @@ FROM     productos AS p LEFT OUTER JOIN
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Cargar provedores"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{1FECF6A0-0182-4F9D-BF5B-2C63F42F8EC9}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Cargar provedores"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData />
+    </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{9A630AEA-6158-40E0-B355-6FAF389EDD3E}"
+      DTS:From="Package\Cargar Productos"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Cargar cliente" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{D95D4EA7-B3EB-4C66-A495-C62D8418BB4B}"
+      DTS:From="Package\Cargar cliente"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Carga empleados" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{B4D774D3-6D1A-47DA-AC7B-374A77751A49}"
+      DTS:From="Package\Carga empleados"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Carga de sucursales" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{EE5C1732-1CD5-4078-A89C-2130AE9F9FE6}"
+      DTS:From="Package\Carga de sucursales"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Cargar provedores" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -4938,7 +6299,7 @@ FROM     productos AS p LEFT OUTER JOIN
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="159.2,41.6"
           Id="Package\Cargar Productos"
@@ -4951,6 +6312,150 @@ FROM     productos AS p LEFT OUTER JOIN
           Size="160,41.6"
           Id="Package\Carga empleados"
           TopLeft="134.285716572586,219.470591313286" />
+        <NodeLayout
+          Size="172.8,41.6"
+          Id="Package\Carga de sucursales"
+          TopLeft="262.857147333573,298.235298300284" />
+        <NodeLayout
+          Size="165.6,41.6"
+          Id="Package\Cargar provedores"
+          TopLeft="286.428576306421,403.764711545" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="115.1,77.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="29.3571440978926,54.4294136093563"
+              Start="0,0"
+              End="29.3571440978926,46.9294136093563">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.2147068046781" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.2147068046781"
+                    Point2="0,27.2147068046781"
+                    Point3="4,27.2147068046781" />
+                  <mssgle:LineSegment
+                    End="25.3571440978926,27.2147068046781" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.3571440978926,27.2147068046781"
+                    Point2="29.3571440978926,27.2147068046781"
+                    Point3="29.3571440978926,31.2147068046781" />
+                  <mssgle:LineSegment
+                    End="29.3571440978926,46.9294136093563" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="144.457144097893,173.129413609356">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="69.8285724746938,46.3411777039301"
+              Start="0,0"
+              End="69.8285724746938,38.8411777039301">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.170588851965" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.170588851965"
+                    Point2="0,23.170588851965"
+                    Point3="4,23.170588851965" />
+                  <mssgle:LineSegment
+                    End="65.8285724746938,23.170588851965" />
+                  <mssgle:CubicBezierSegment
+                    Point1="65.8285724746938,23.170588851965"
+                    Point2="69.8285724746938,23.170588851965"
+                    Point3="69.8285724746938,27.170588851965" />
+                  <mssgle:LineSegment
+                    End="69.8285724746938,38.8411777039301" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="214.285716572586,261.070591313286">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="134.971430760987,37.1647069869981"
+              Start="0,0"
+              End="134.971430760987,29.6647069869981">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.582353493499" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.582353493499"
+                    Point2="0,18.582353493499"
+                    Point3="4,18.582353493499" />
+                  <mssgle:LineSegment
+                    End="130.971430760987,18.582353493499" />
+                  <mssgle:CubicBezierSegment
+                    Point1="130.971430760987,18.582353493499"
+                    Point2="134.971430760987,18.582353493499"
+                    Point3="134.971430760987,22.582353493499" />
+                  <mssgle:LineSegment
+                    End="134.971430760987,29.6647069869981" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="349.257147333573,339.835298300284">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="19.9714289728477,63.929413244716"
+              Start="0,0"
+              End="19.9714289728477,56.429413244716">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.964706622358" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.964706622358"
+                    Point2="0,31.964706622358"
+                    Point3="4,31.964706622358" />
+                  <mssgle:LineSegment
+                    End="15.9714289728477,31.964706622358" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15.9714289728477,31.964706622358"
+                    Point2="19.9714289728477,31.964706622358"
+                    Point3="19.9714289728477,35.964706622358" />
+                  <mssgle:LineSegment
+                    End="19.9714289728477,56.429413244716" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -5694,6 +7199,564 @@ FROM     productos AS p LEFT OUTER JOIN
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Carga empleados\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Carga de sucursales">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="128,41.6"
+          Id="Package\Carga de sucursales\Sucursales"
+          TopLeft="492.5,121.5" />
+        <NodeLayout
+          Size="145.6,41.6"
+          Id="Package\Carga de sucursales\dim_ubicacion"
+          TopLeft="842,126" />
+        <NodeLayout
+          Size="116.8,41.6"
+          Id="Package\Carga de sucursales\Ordenar"
+          TopLeft="527,290" />
+        <NodeLayout
+          Size="125.6,41.6"
+          Id="Package\Carga de sucursales\Ordenar 1"
+          TopLeft="843,326" />
+        <EdgeLayout
+          Id="Package\Carga de sucursales.Paths[Salida de origen de OLE DB]"
+          TopLeft="914.8,167.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9,158.4"
+              Start="0,0"
+              End="-9,150.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,75.1999999999999" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,75.1999999999999"
+                    Point2="0,79.1999999999999"
+                    Point3="-4,79.1999999999999" />
+                  <mssgle:LineSegment
+                    End="-5,79.1999999999999" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5,79.1999999999999"
+                    Point2="-9,79.1999999999999"
+                    Point3="-9,83.1999999999999" />
+                  <mssgle:LineSegment
+                    End="-9,150.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga de sucursales.Paths[Salida de origen de OLE DB1]"
+          TopLeft="556.5,163.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="28.8999999999998,126.9"
+              Start="0,0"
+              End="28.8999999999998,119.4">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.45" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,59.45"
+                    Point2="0,63.45"
+                    Point3="4,63.45" />
+                  <mssgle:LineSegment
+                    End="24.8999999999998,63.45" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24.8999999999998,63.45"
+                    Point2="28.8999999999998,63.45"
+                    Point3="28.8999999999998,67.45" />
+                  <mssgle:LineSegment
+                    End="28.8999999999998,119.4" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="188.8,41.6"
+          Id="Package\Carga de sucursales\Combinación de mezcla"
+          TopLeft="812,430" />
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\Carga de sucursales\Conversión de datos"
+          TopLeft="526,427" />
+        <EdgeLayout
+          Id="Package\Carga de sucursales.Paths[Salida de ordenación]"
+          TopLeft="585.4,331.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27.8,95.3999999999999"
+              Start="0,0"
+              End="27.8,87.8999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.6999999999999" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.6999999999999"
+                    Point2="0,47.6999999999999"
+                    Point3="4,47.6999999999999" />
+                  <mssgle:LineSegment
+                    End="23.8,47.6999999999999" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.8,47.6999999999999"
+                    Point2="27.8,47.6999999999999"
+                    Point3="27.8,51.6999999999999" />
+                  <mssgle:LineSegment
+                    End="27.8,87.8999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga de sucursales.Paths[Salida de ordenación1]"
+          TopLeft="906.1,367.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62.4"
+              Start="0,0"
+              End="0,54.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga de sucursales.Paths[Salida de conversión de datos]"
+          TopLeft="700.4,449.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="111.6,0"
+              Start="0,0"
+              End="104.1,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="104.1,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Carga de sucursales\División condicional"
+          TopLeft="831,553" />
+        <EdgeLayout
+          Id="Package\Carga de sucursales.Paths[Salida de combinación de mezcla]"
+          TopLeft="906.4,471.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.8000000000003,81.4"
+              Start="0,0"
+              End="9.8000000000003,73.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.7" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.7"
+                    Point2="0,40.7"
+                    Point3="4,40.7" />
+                  <mssgle:LineSegment
+                    End="5.8000000000003,40.7" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.8000000000003,40.7"
+                    Point2="9.8000000000003,40.7"
+                    Point3="9.8000000000003,44.7" />
+                  <mssgle:LineSegment
+                    End="9.8000000000003,73.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="168,41.6"
+          Id="Package\Carga de sucursales\Destino de OLE DB"
+          TopLeft="829,689" />
+        <EdgeLayout
+          Id="Package\Carga de sucursales.Paths[nuevoRegistro]"
+          TopLeft="914.6,594.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,94.4000000000001"
+              Start="0,0"
+              End="0,86.9000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,86.9000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-32.00365234375,37.7576171875,64.0073046875,11.384765625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga de sucursales\Sucursales">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga de sucursales\dim_ubicacion">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga de sucursales\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Cargar provedores">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="143.2,41.6"
+          Id="16"
+          TopLeft="757.090909090909,210.818181818182" />
+        <NodeLayout
+          Size="116.8,41.6"
+          Id="52"
+          TopLeft="422.714285714286,369" />
+        <NodeLayout
+          Size="125.6,41.6"
+          Id="124"
+          TopLeft="762.142857142857,374.350649350649" />
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="135"
+          TopLeft="402.857142857143,523.571428571429" />
+        <NodeLayout
+          Size="188.8,41.6"
+          Id="187"
+          TopLeft="702.5,566.742424242424" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="219"
+          TopLeft="713.333333333333,666.666666666667" />
+        <NodeLayout
+          Size="168,41.6"
+          Id="249"
+          TopLeft="723.181818181818,787.007575757576" />
+        <NodeLayout
+          Size="120,41.6"
+          Id="1"
+          TopLeft="397.027272727273,165.754545454546" />
+        <EdgeLayout
+          Id="297"
+          TopLeft="457.027272727273,207.354545454546">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="24.0870129870128,161.645454545454"
+              Start="0,0"
+              End="24.0870129870128,154.145454545454">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,76.8227272727272" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,76.8227272727272"
+                    Point2="0,80.8227272727272"
+                    Point3="4,80.8227272727272" />
+                  <mssgle:LineSegment
+                    End="20.0870129870128,80.8227272727272" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.0870129870128,80.8227272727272"
+                    Point2="24.0870129870128,80.8227272727272"
+                    Point3="24.0870129870128,84.8227272727272" />
+                  <mssgle:LineSegment
+                    End="24.0870129870128,154.145454545454" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="298"
+          TopLeft="826.816883116883,252.418181818182">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,121.932467532467"
+              Start="0,0"
+              End="0,114.432467532467">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,114.432467532467" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="299"
+          TopLeft="481.114285714286,410.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.94285714285712,112.971428571429"
+              Start="0,0"
+              End="8.94285714285712,105.471428571429">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4857142857143" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,52.4857142857143"
+                    Point2="0,56.4857142857143"
+                    Point3="4,56.4857142857143" />
+                  <mssgle:LineSegment
+                    End="4.94285714285712,56.4857142857143" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.94285714285712,56.4857142857143"
+                    Point2="8.94285714285712,56.4857142857143"
+                    Point3="8.94285714285712,60.4857142857143" />
+                  <mssgle:LineSegment
+                    End="8.94285714285712,105.471428571429" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="300"
+          TopLeft="577.257142857143,544.371428571429">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="125.242857142857,43.1709956709958"
+              Start="0,0"
+              End="117.742857142857,43.1709956709958">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="58.6214285714286,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="58.6214285714286,0"
+                    Point2="62.6214285714286,0"
+                    Point3="62.6214285714286,4" />
+                  <mssgle:LineSegment
+                    End="62.6214285714286,39.1709956709958" />
+                  <mssgle:CubicBezierSegment
+                    Point1="62.6214285714286,39.1709956709958"
+                    Point2="62.6214285714286,43.1709956709958"
+                    Point3="66.6214285714286,43.1709956709958" />
+                  <mssgle:LineSegment
+                    End="117.742857142857,43.1709956709958" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="301"
+          TopLeft="824.942857142857,415.950649350649">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-28.0428571428572,150.791774891775"
+              Start="0,0"
+              End="-28.0428571428572,143.291774891775">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,71.3958874458875" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,71.3958874458875"
+                    Point2="0,75.3958874458875"
+                    Point3="-4,75.3958874458875" />
+                  <mssgle:LineSegment
+                    End="-24.0428571428572,75.3958874458875" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-24.0428571428572,75.3958874458875"
+                    Point2="-28.0428571428572,75.3958874458875"
+                    Point3="-28.0428571428572,79.3958874458875" />
+                  <mssgle:LineSegment
+                    End="-28.0428571428572,143.291774891775" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="302"
+          TopLeft="797.716666666667,608.342424242424">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.3242424242422"
+              Start="0,0"
+              End="0,50.8242424242422">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.8242424242422" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="303"
+          TopLeft="798.533333333334,708.266666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.6484848484846,78.7409090909092"
+              Start="0,0"
+              End="8.6484848484846,71.2409090909092">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.3704545454546" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.3704545454546"
+                    Point2="0,39.3704545454546"
+                    Point3="4,39.3704545454546" />
+                  <mssgle:LineSegment
+                    End="4.6484848484846,39.3704545454546" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.6484848484846,39.3704545454546"
+                    Point2="8.6484848484846,39.3704545454546"
+                    Point3="8.6484848484846,43.3704545454546" />
+                  <mssgle:LineSegment
+                    End="8.6484848484846,71.2409090909092" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-29.1044099195077,44.3704545454546,66.8573046875,11.384765625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Cargar provedores\1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Cargar provedores\16">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Cargar provedores\249">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
