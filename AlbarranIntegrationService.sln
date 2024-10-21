@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.35229.62
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "AlbarranIntegrationService", "AlbarranIntegrationService\AlbarranIntegrationService.dtproj", "{B35F8D5A-3EF8-4076-9E51-008265BB4038}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B35F8D5A-3EF8-4076-9E51-008265BB4038}.Development|Default.ActiveCfg = Development
+		{B35F8D5A-3EF8-4076-9E51-008265BB4038}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {41F9EE93-CF86-4442-8DE8-EC4CBA25AA75}
+	EndGlobalSection
+EndGlobal
